@@ -1,4 +1,4 @@
-package model;
+package com.aquila.spring.datarest.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +11,9 @@ public class WebsiteUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    public WebsiteUser() {
+    }
 
     public WebsiteUser(String name, String email) {
         this.name = name;
