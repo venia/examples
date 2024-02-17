@@ -1,6 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
+
 N = 500
 
 x1 = np.random.random(N)

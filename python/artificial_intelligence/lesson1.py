@@ -1,4 +1,8 @@
 import numpy as np
+import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
 def act(x):
     return 0 if x < 0.5 else 1
