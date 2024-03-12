@@ -13,6 +13,7 @@
     <modules>
         <module>event-domain</module>
         <module>spring-data-rest</module>
+        <module>react-and-spring-data-rest-example</module>
     </modules>
 
     <properties>
