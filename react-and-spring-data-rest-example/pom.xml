@@ -8,11 +8,16 @@
         <relativePath/>
     </parent>
 
+    <groupId>com.aquila.spring.data.example</groupId>
     <artifactId>react-and-spring-data-rest-example</artifactId>
-    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <name>react-and-spring-data-rest-example</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>basic</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
