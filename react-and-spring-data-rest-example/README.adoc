@@ -1,0 +1,12 @@
+
+Spring and Spring Boot Impact
+Java 17 support has been added to Spring Framework from 5.3.X and Spring Boot 2.5.X. If you need to use
+Spring Boot with Java 17, then you need to upgrade it to 2.5.X or higher.
+
+curl localhost:8080/api
+
+curl localhost:8080/api/employees
+
+curl localhost:8080/api/employees/1
+
+curl -X POST localhost:8080/api/employees -d "{\"firstName\": \"Bilbo\", \"lastName\": \"Baggins\", \"description\": \"burglar\"}" -H "Content-Type:application/json"
