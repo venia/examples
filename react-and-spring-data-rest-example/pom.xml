@@ -18,6 +18,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>basic</module>
+        <module>hypermedia</module>
     </modules>
 
     <properties>
