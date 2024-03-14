@@ -1,4 +1,4 @@
-package com.aquila.spring.data.example.basic;
+package com.aquila.spring.data.example.hypermedia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,15 +1,14 @@
-package com.aquila.spring.data.example.basic;
-
+package com.aquila.spring.data.example.hypermedia;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity // <1>
+@Entity
 public class Employee {
 
-    private @Id @GeneratedValue Long id; // <2>
+    private @Id @GeneratedValue Long id;
     private String firstName;
     private String lastName;
     private String description;

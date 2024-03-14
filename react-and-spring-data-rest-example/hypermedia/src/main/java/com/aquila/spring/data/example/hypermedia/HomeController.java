@@ -1,14 +1,14 @@
-package com.aquila.spring.data.example.basic;
+package com.aquila.spring.data.example.hypermedia;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller // <1>
+@Controller
 public class HomeController {
 
-    @RequestMapping(value = "/") // <2>
+    @RequestMapping(value = "/")
     public String index() {
-        return "index"; // <3>
+        return "index";
     }
 
 }
