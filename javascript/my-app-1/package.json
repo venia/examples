@@ -27,9 +27,7 @@
     "index_1.js"
   ],
   "scripts": {
-    "//start": "react-scripts start",
-    "//build": "react-scripts build",
-    "start": "webpack serve --mode development --open",
+    "start": "webpack serve --history-api-fallback --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
