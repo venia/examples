@@ -34088,13 +34088,13 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -34104,7 +34104,6 @@ var follow = __webpack_require__(/*! ./follow */ "./src/main/js/follow.js"); // 
 
 var root = '/api';
 var App = /*#__PURE__*/function (_React$Component) {
-  _inherits(App, _React$Component);
   function App(props) {
     var _this;
     _classCallCheck(this, App);
@@ -34115,15 +34114,16 @@ var App = /*#__PURE__*/function (_React$Component) {
       pageSize: 2,
       links: {}
     };
-    _this.updatePageSize = _this.updatePageSize.bind(_assertThisInitialized(_this));
-    _this.onCreate = _this.onCreate.bind(_assertThisInitialized(_this));
-    _this.onDelete = _this.onDelete.bind(_assertThisInitialized(_this));
-    _this.onNavigate = _this.onNavigate.bind(_assertThisInitialized(_this));
+    _this.updatePageSize = _this.updatePageSize.bind(_this);
+    _this.onCreate = _this.onCreate.bind(_this);
+    _this.onDelete = _this.onDelete.bind(_this);
+    _this.onNavigate = _this.onNavigate.bind(_this);
     return _this;
   }
 
   // tag::follow-2[]
-  _createClass(App, [{
+  _inherits(App, _React$Component);
+  return _createClass(App, [{
     key: "loadFromServer",
     value: function loadFromServer(pageSize) {
       var _this2 = this;
@@ -34251,18 +34251,17 @@ var App = /*#__PURE__*/function (_React$Component) {
       }));
     }
   }]);
-  return App;
 }(React.Component); // tag::create-dialog[]
 var CreateDialog = /*#__PURE__*/function (_React$Component2) {
-  _inherits(CreateDialog, _React$Component2);
   function CreateDialog(props) {
     var _this6;
     _classCallCheck(this, CreateDialog);
     _this6 = _callSuper(this, CreateDialog, [props]);
-    _this6.handleSubmit = _this6.handleSubmit.bind(_assertThisInitialized(_this6));
+    _this6.handleSubmit = _this6.handleSubmit.bind(_this6);
     return _this6;
   }
-  _createClass(CreateDialog, [{
+  _inherits(CreateDialog, _React$Component2);
+  return _createClass(CreateDialog, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
       var _this7 = this;
@@ -34308,24 +34307,23 @@ var CreateDialog = /*#__PURE__*/function (_React$Component2) {
       }, "Create")))));
     }
   }]);
-  return CreateDialog;
 }(React.Component); // end::create-dialog[]
 var EmployeeList = /*#__PURE__*/function (_React$Component3) {
-  _inherits(EmployeeList, _React$Component3);
   function EmployeeList(props) {
     var _this8;
     _classCallCheck(this, EmployeeList);
     _this8 = _callSuper(this, EmployeeList, [props]);
-    _this8.handleNavFirst = _this8.handleNavFirst.bind(_assertThisInitialized(_this8));
-    _this8.handleNavPrev = _this8.handleNavPrev.bind(_assertThisInitialized(_this8));
-    _this8.handleNavNext = _this8.handleNavNext.bind(_assertThisInitialized(_this8));
-    _this8.handleNavLast = _this8.handleNavLast.bind(_assertThisInitialized(_this8));
-    _this8.handleInput = _this8.handleInput.bind(_assertThisInitialized(_this8));
+    _this8.handleNavFirst = _this8.handleNavFirst.bind(_this8);
+    _this8.handleNavPrev = _this8.handleNavPrev.bind(_this8);
+    _this8.handleNavNext = _this8.handleNavNext.bind(_this8);
+    _this8.handleNavLast = _this8.handleNavLast.bind(_this8);
+    _this8.handleInput = _this8.handleInput.bind(_this8);
     return _this8;
   }
 
   // tag::handle-page-size-updates[]
-  _createClass(EmployeeList, [{
+  _inherits(EmployeeList, _React$Component3);
+  return _createClass(EmployeeList, [{
     key: "handleInput",
     value: function handleInput(e) {
       e.preventDefault();
@@ -34410,18 +34408,17 @@ var EmployeeList = /*#__PURE__*/function (_React$Component3) {
     }
     // end::employee-list-render[]
   }]);
-  return EmployeeList;
 }(React.Component); // tag::employee[]
 var Employee = /*#__PURE__*/function (_React$Component4) {
-  _inherits(Employee, _React$Component4);
   function Employee(props) {
     var _this10;
     _classCallCheck(this, Employee);
     _this10 = _callSuper(this, Employee, [props]);
-    _this10.handleDelete = _this10.handleDelete.bind(_assertThisInitialized(_this10));
+    _this10.handleDelete = _this10.handleDelete.bind(_this10);
     return _this10;
   }
-  _createClass(Employee, [{
+  _inherits(Employee, _React$Component4);
+  return _createClass(Employee, [{
     key: "handleDelete",
     value: function handleDelete() {
       this.props.onDelete(this.props.employee);
@@ -34434,7 +34431,6 @@ var Employee = /*#__PURE__*/function (_React$Component4) {
       }, "Delete")));
     }
   }]);
-  return Employee;
 }(React.Component); // end::employee[]
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
 
