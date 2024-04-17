@@ -1,0 +1,55 @@
+https://medium.com/@ns-tech-learn/how-to-install-webpack-and-configure-in-react-js-88b4b0bd0af9
+
+### Step 1: Create a React Project
+
+npx create-react-app my-react-app
+cd my-react-app
+
+### Step 2: Install Webpack and Related Dependencies
+
+npm install webpack webpack-cli webpack-dev-server - save-dev
+
+- `webpack`: The core Webpack module.
+
+- `webpack-cli`: Command-line interface for Webpack.
+
+- `webpack-dev-server`: A development server that provides live reloading.
+
+### Step 3: Create a Webpack Configuration File
+
+const path = require("path");
+module.exports = {
+  entry: "./src/index.js", // Entry point of your application
+  output: {
+    filename: "bundle.js", // Output bundle file name
+    path: path.resolve(__dirname, "dist"), // Output directory
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "public"), // Serve files from this directory
+    port: 3000, // Port for the development server
+    open: true, // Open the default web browser when the server starts
+  },
+};
+
+### Step 4: Update `package.json`
+
+"scripts": {
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
+}
+#######################################################################################################################
+#######################################################################################################################
