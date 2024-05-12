@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.19.3/babel.js"></script>
+    <script data-plugins="transform-modules-umd" type="text/babel" data-presets="react" data-type="module" src="something.js"></script>
+</head>
+<body>
+<h3>Begin</h3>
+<div id="root-box"></div>
+<h3>End</h3>
+<script data-plugins="transform-modules-umd" type="text/babel" data-presets="react" data-type="module">
+    import { Something } from "./something.js";
+    ReactDOM.createRoot(document.getElementById("root-box")).render(
+        <Something />
+    );
+</script>
+</body>
+</html>
