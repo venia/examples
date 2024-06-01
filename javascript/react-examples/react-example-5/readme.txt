@@ -70,5 +70,5 @@ Run npm run build in the terminal. You will see the following output:
 |-- dist
   |-- bundle.js
   |-- bundle.js.LICENSE.txt
-  |-- index.html 
+  |-- index.html
 

@@ -17,3 +17,14 @@ mvn -N io.takari:maven:wrapper -Dmaven=3.3.3
 Both commands require maven on PATH (add the path to maven bin to Path on System Variables) if you already have mvnw in your project you can use ./mvnw instead of mvn in the commands.
 
 mvn spring-boot:run
+
+-------------------------------------------------------------------------
+Delete node_modules folder recursively from a specified path using command line
+
+Print out a list of directories to be deleted:
+
+find . -name 'node_modules' -type d -prune
+
+Delete directories from the current working directory:
+
+find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
