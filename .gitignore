@@ -6,3 +6,4 @@ event-domain/event-domain.iml
 react-and-spring-data-rest-example/basic/basic.iml
 react-and-spring-data-rest-example/hypermedia/hypermedia.iml
 react-and-spring-data-rest-example/react-and-spring-data-rest-example.iml
+*.iml
