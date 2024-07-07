@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NameForm from "./NameForm";
+import EssayForm from "./EssayForm";
+import Facade from "./Facade";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <NameForm />
+    <Facade />
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
