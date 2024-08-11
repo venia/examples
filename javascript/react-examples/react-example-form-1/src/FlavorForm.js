@@ -1,6 +1,6 @@
 import React from "react";
 
-export default export defaultclass FlavorForm extends React.Component {
+export default class FlavorForm extends React.Component {
 
     constructor(props) {
         super(props);

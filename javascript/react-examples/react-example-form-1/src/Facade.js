@@ -2,6 +2,7 @@ import React from "react";
 import NameForm from "./NameForm";
 import EssayForm from "./EssayForm";
 import FlavorForm from "./FlavorForm";
+import Reservation from "./Reservation";
 
 export default class Facade extends React.Component {
     constructor(props) {
@@ -20,6 +21,7 @@ export default class Facade extends React.Component {
                 <div>
                     <FlavorForm></FlavorForm>
                 </div>
+                <div><Reservation/></div>
             </>
         );
     }
