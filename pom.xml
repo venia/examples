@@ -11,11 +11,11 @@
     <name>Examples</name>
 
     <modules>
-        <module>event-domain</module>
         <module>spring-data-rest</module>
         <module>react-and-spring-data-rest-example</module>
         <module>javascript</module>
         <module>python</module>
+        <module>java</module>
     </modules>
 
     <properties>
