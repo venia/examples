@@ -11,8 +11,6 @@
     <name>Examples</name>
 
     <modules>
-        <module>spring-data-rest</module>
-        <module>react-and-spring-data-rest-example</module>
         <module>javascript</module>
         <module>python</module>
         <module>java</module>

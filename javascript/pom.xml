@@ -13,7 +13,6 @@
     <name>javascript</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>react-crash-2021</module>
         <module>react-examples</module>
         <module>babel-examples</module>
     </modules>
