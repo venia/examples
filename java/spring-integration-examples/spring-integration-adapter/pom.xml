@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aquila.example.java.springintegration</groupId>
-    <artifactId>spring-integration-aggregator</artifactId>
+    <artifactId>spring-integration-adapter</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>spring-integration-aggregator</name>
@@ -20,6 +20,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springframework.version>4.2.0.RELEASE</springframework.version>
+        <spring.integration.version>4.2.0.RELEASE</spring.integration.version>
     </properties>
 
     <dependencies>
@@ -29,16 +31,50 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<!--        CVE-2020-5413 9.8-->
+<!--        Deserialization of Untrusted Data vulnerability with High severity found-->
+<!--        CVE-2022-22965 9.8-->
+<!--        Transitive Improper Control of Generation of Code ("Code Injection") vulnerability with High severity found-->
+<!--        CVE-2022-22970 5.3-->
+<!--        Transitive Allocation of Resources Without Limits or Throttling vulnerability with Medium severity found-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${spring.integration.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jmx</artifactId>
+            <version>${spring.integration.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-stream</artifactId>
+            <scope>compile</scope>
+            <version>${spring.integration.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Spring Boot Test Starter for Unit Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <version>1.3</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

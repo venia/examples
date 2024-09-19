@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-integration-aggregator</module>
+        <module>spring-integration-adapter</module>
     </modules>
 
     <properties>
