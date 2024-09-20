@@ -1,4 +1,1 @@
-java.lang.ClassNotFoundException: org.springframework.data.web.config.EnableSpringDataWebSupport
-java.lang.ClassNotFoundException: org.springframework.data.web.config.EnableSpringDataWebSupport
-
 org.springframework.beans.factory.BeanNotOfRequiredTypeException: Bean named 'processedOrders' must be of type [org.springframework.integration.channel.QueueChannel], but was actually of type [org.springframework.integration.channel.DirectChannel]
