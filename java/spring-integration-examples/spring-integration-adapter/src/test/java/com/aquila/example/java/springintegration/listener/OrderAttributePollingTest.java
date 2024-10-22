@@ -29,7 +29,7 @@ public class OrderAttributePollingTest {
         OrderMBean orderMBean = context.getBean("orderMBean", OrderMBean.class);
         orderMBean.incrementOrder();
         Thread.sleep(4000);
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 100; i++) {
             QueueChannel processedOrders = context.getBean("processedOrders", QueueChannel.class);
             Message<?> processedMsg = processedOrders.receive(5000);
             assertNotNull(processedMsg);

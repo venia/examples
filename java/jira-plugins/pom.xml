@@ -3,20 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.aquila.example</groupId>
-        <artifactId>examples</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <groupId>com.aquila.example.java</groupId>
-    <artifactId>java</artifactId>
+    <artifactId>jira-plugins</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
-        <module>react-and-spring-data-rest-example</module>
-        <module>spring-data-rest</module>
-        <module>spring-integration-examples</module>
-        <module>jira-plugins</module>
+        <module>innovator</module>
     </modules>
 
     <properties>
