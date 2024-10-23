@@ -20,6 +20,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+<!--        <jira.version>7.13.0</jira.version>-->
+<!--        <amps.version>8.0.0</amps.version>-->
+
         <jira.version>7.5.0</jira.version>
         <amps.version>6.3.6</amps.version>
         <atlassian.spring.scanner.version>2.0.0</atlassian.spring.scanner.version>
@@ -98,7 +102,8 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
             <version>${spring.integration.version}</version>
-            <scope>provided</scope>
+<!--            <scope>provided</scope>-->
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
@@ -132,6 +137,7 @@
                     <productVersion>${jira.version}</productVersion>
                     <productDataVersion>${jira.version}</productDataVersion>
                     <enableQuickReload>true</enableQuickReload>
+                    <extractDependencies>false</extractDependencies>
                     <enableFastdev>false</enableFastdev>
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
@@ -140,7 +146,21 @@
                         <!-- Add package to export here -->
                         <Export-Package>com.aquila.example.java.jiraplugin,</Export-Package>
                         <!-- Add package import here -->
-                        <Import-Package>org.springframework.messaging.*;resolution:="optional", org.springframework.osgi.*;resolution:="optional", org.eclipse.gemini.blueprint.*;resolution:="optional", *</Import-Package>
+                        <Import-Package>
+                            org.springframework.oxm.*;resolution:="optional",
+                            org.reactivestreams.*;resolution:="optional",
+                            org.codehaus.groovy.runtime.*;resolution:="optional",
+                            org.codehaus.groovy.reflection.*;resolution:="optional",
+                            io.netty.util.concurrent.*;resolution:="optional",
+                            io.netty.channel.nio.*;resolution:="optional",
+                            groovy.xml.*;resolution:="optional",
+                            groovy.lang.*;resolution:="optional",
+                            com.fasterxml.jackson.databind.*;resolution:="optional",
+                            com.fasterxml.jackson.core.*;resolution:="optional",
+                            org.springframework.messaging.*;resolution:="optional",
+                            org.springframework.osgi.*;resolution:="optional",
+                            org.eclipse.gemini.blueprint.*;resolution:="optional", *
+                        </Import-Package>
                         <!-- Ensure plugin is spring powered -->
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Spring-Context>*</Spring-Context>

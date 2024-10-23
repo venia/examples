@@ -16,6 +16,8 @@ public class ApplicationConfig {
 
     @Bean(name = "innovatorService")
     public InnovatorService innovatorService() {
+//        Message<String> messasge = new GenericMessage("innovator");
+//        log.info("===========================> GenericMessage" + messasge.getPayload());
         log.info("===========================[InnovatorConfiguration.innovatorService]=============================");
         System.out.println("===========================[InnovatorConfiguration.innovatorService]=============================");
         return new InnovatorServiceImpl();
