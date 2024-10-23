@@ -24,7 +24,8 @@
         <amps.version>6.3.6</amps.version>
         <atlassian.spring.scanner.version>2.0.0</atlassian.spring.scanner.version>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <springframework.version>4.2.0.RELEASE</springframework.version>
+        <spring.integration.version>4.2.0.RELEASE</spring.integration.version>
     </properties>
 
     <dependencies>
@@ -47,13 +48,13 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <version>${springframework.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>${springframework.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -80,16 +81,37 @@
             <version>2.4</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Spring Integration -->
         <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>jsr311-api</artifactId>
-            <version>1.1.1</version>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${spring.integration.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.2-atlassian-1</version>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jmx</artifactId>
+            <version>${spring.integration.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-stream</artifactId>
+            <version>${spring.integration.version}</version>
+<!--            <scope>compile</scope>-->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${springframework.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>1.12.0.RELEASE</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
