@@ -13,7 +13,7 @@
     <context:component-scan base-package="com.aquila.example.java.jiraplugin" />
 
     <!-- Spring Integration -->
-    <bean id="commonServiceActivator" class="com.aquila.example.java.jiraplugin.activator.CommonServiceActivator" />
+<!--    <bean id="commonServiceActivator" class="com.aquila.example.java.jiraplugin.activator.CommonServiceActivator" />-->
 <!--    <bean id="maxItemsFilter" class="com.aquila.example.java.jiraplugin.adapter.filter.MaxItemsFilter" />-->
     <!-- Spring Integration -->
 
