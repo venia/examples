@@ -86,6 +86,11 @@
             <scope>provided</scope>
         </dependency>
         <!-- Spring Integration -->
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.plugins</groupId>-->
+<!--            <artifactId>atlassian-plugins-osgi-javaconfig</artifactId>-->
+<!--            <version>0.6.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-core</artifactId>
@@ -101,9 +106,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
-            <version>${spring.integration.version}</version>
+            <version>5.2.3.RELEASE</version>
             <scope>provided</scope>
-<!--            <scope>compile</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>5.2.3.RELEASE</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
@@ -146,18 +156,25 @@
                         <Export-Package>com.aquila.example.java.jiraplugin,</Export-Package>
                         <!-- Add package import here -->
                         <Import-Package>
-<!--                            reactor.*;resolution:="optional",-->
-<!--                            org.yaml.snakeyaml.*;resolution:="optional",-->
-<!--                            org.springframework.oxm.*;resolution:="optional",-->
-<!--                            org.reactivestreams.*;resolution:="optional",-->
-<!--                            org.codehaus.groovy.runtime.*;resolution:="optional",-->
-<!--                            org.codehaus.groovy.reflection.*;resolution:="optional",-->
-<!--                            io.netty.util.concurrent.*;resolution:="optional",-->
-<!--                            io.netty.channel.nio.*;resolution:="optional",-->
-<!--                            groovy.xml.*;resolution:="optional",-->
-<!--                            groovy.lang.*;resolution:="optional",-->
-<!--                            com.fasterxml.jackson.databind.*;resolution:="optional",-->
-<!--                            com.fasterxml.jackson.core.*;resolution:="optional",-->
+                            reactor.*;resolution:="optional",
+                            org.yaml.snakeyaml.*;resolution:="optional",
+                            org.springframework.oxm.*;resolution:="optional",
+                            org.reactivestreams.*;resolution:="optional",
+                            org.codehaus.groovy.runtime.*;resolution:="optional",
+                            org.codehaus.groovy.reflection.*;resolution:="optional",
+                            kotlinx.coroutines.reactive.*;resolution:="optional",
+                            kotlinx.coroutines.flow.*;resolution:="optional",
+                            kotlin.*;resolution:="optional",
+                            io.rsocket.*;resolution:="optional",
+                            io.netty.util.*;resolution:="optional",
+                            io.netty.handler.codec.*;resolution:="optional",
+                            io.netty.channel.*;resolution:="optional",
+                            io.netty.buffer.*;resolution:="optional",
+                            groovy.xml.*;resolution:="optional",
+                            groovy.lang.*;resolution:="optional",
+                            com.google.protobuf.*;resolution:="optional",
+                            com.fasterxml.jackson.databind.*;resolution:="optional",
+                            com.fasterxml.jackson.core.*;resolution:="optional",
                             org.springframework.messaging.*;resolution:="optional",
                             org.springframework.osgi.*;resolution:="optional",
                             org.eclipse.gemini.blueprint.*;resolution:="optional", *
