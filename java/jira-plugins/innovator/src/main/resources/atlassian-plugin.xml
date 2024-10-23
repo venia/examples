@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="jira-plugin-spring-integration"/>
+    <!-- add our web resources -->
+    <web-resource key="jira-plugin-spring-integration-resources" name="jira-plugin-spring-integration Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="spring-tutorial.css" location="/css/spring-tutorial.css"/>
+        <resource type="download" name="spring-tutorial.js" location="/js/spring-tutorial.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>jira-plugin-spring-integration</context>
+    </web-resource>
+    <servlet name="Jira Plugin Servlet" i18n-name-key="jira-plugin-servlet.name" key="jira-plugin-servlet" class="com.aquila.example.java.jiraplugin.servlet.JiraPluginServlet">
+        <description key="jira-plugin-servlet.description">The Spring integration Plugin</description>
+        <url-pattern>/jira-plugin-servlet</url-pattern>
+    </servlet>
+</atlassian-plugin>
