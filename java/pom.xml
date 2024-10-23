@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.aquila.example.java</groupId>
-    <artifactId>java</artifactId>
+    <artifactId>spring-integration-examples</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>react-and-spring-data-rest-example</module>

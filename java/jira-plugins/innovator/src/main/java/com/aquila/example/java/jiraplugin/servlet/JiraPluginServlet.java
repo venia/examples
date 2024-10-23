@@ -1,5 +1,6 @@
 package com.aquila.example.java.jiraplugin.servlet;
 
+import com.aquila.example.java.jiraplugin.service.FooService;
 import com.aquila.example.java.jiraplugin.service.InnovatorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +17,12 @@ public class JiraPluginServlet extends HttpServlet {
 
     private InnovatorService innovatorService;
 
+    private FooService fooService;
+
     @Inject
-    public JiraPluginServlet(@Qualifier("innovatorService") InnovatorService innovatorService) {
+    public JiraPluginServlet(@Qualifier("innovatorService") InnovatorService innovatorService, FooService fooService) {
         this.innovatorService = innovatorService;
+        this.fooService = fooService;
     }
 
     @Override
@@ -26,8 +30,11 @@ public class JiraPluginServlet extends HttpServlet {
     {
         log.debug("=======================[JiraPluginServlet called]=======================");
         String innovatorServiceName = innovatorService.getServiceName();
+        String fooServiceName = fooService.getServiceName();
+        String appender = "<h1>Service: " + innovatorServiceName + "</h1>";
+        appender += "<h1>Service: " + fooServiceName + "</h1>";
         resp.setContentType("text/html");
-        String message = "<html><body><h1>Hello service: " + innovatorServiceName + "</h1></body></html>";
+        String message = "<html><body><h1>Hello service: " + appender + "</h1></body></html>";
         resp.getWriter().write(message);
     }
 

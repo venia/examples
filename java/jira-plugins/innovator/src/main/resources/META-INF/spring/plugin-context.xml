@@ -11,4 +11,6 @@
     <atlassian-scanner:scan-indexes/>
 
     <context:component-scan base-package="com.aquila.example.java.jiraplugin" />
+
+    <bean id="fooService" class="com.aquila.example.java.jiraplugin.service.impl.FooServiceImpl" init-method="init" />
 </beans>
