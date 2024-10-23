@@ -21,11 +21,11 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-<!--        <jira.version>7.13.0</jira.version>-->
-<!--        <amps.version>8.0.0</amps.version>-->
+        <amps.version>8.0.2</amps.version>
+        <jira.version>8.19.0</jira.version>
 
-        <jira.version>7.5.0</jira.version>
-        <amps.version>6.3.6</amps.version>
+<!--        <jira.version>7.5.0</jira.version>-->
+<!--        <amps.version>6.3.6</amps.version>-->
         <atlassian.spring.scanner.version>2.0.0</atlassian.spring.scanner.version>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <springframework.version>4.2.0.RELEASE</springframework.version>
@@ -41,14 +41,14 @@
         </dependency>
         <!-- Add dependency on jira-core if you want access to JIRA implementation classes as well as the sanctioned API. -->
         <!-- This is not normally recommended, but may be required e.g. when migrating a plugin originally developed against JIRA 4.x -->
-        <!--
+
         <dependency>
             <groupId>com.atlassian.jira</groupId>
             <artifactId>jira-core</artifactId>
             <version>${jira.version}</version>
             <scope>provided</scope>
         </dependency>
-        -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -67,12 +67,12 @@
             <version>${atlassian.spring.scanner.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.atlassian.plugin</groupId>
-            <artifactId>atlassian-spring-scanner-runtime</artifactId>
-            <version>${atlassian.spring.scanner.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.atlassian.plugin</groupId>-->
+<!--            <artifactId>atlassian-spring-scanner-runtime</artifactId>-->
+<!--            <version>${atlassian.spring.scanner.version}</version>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
@@ -139,7 +139,7 @@
         <plugins>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-jira-plugin</artifactId>
+                <artifactId>jira-maven-plugin</artifactId>
                 <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
@@ -156,6 +156,7 @@
                         <Export-Package>com.aquila.example.java.jiraplugin,</Export-Package>
                         <!-- Add package import here -->
                         <Import-Package>
+                            groovy.transform.*;resolution:="optional",
                             reactor.*;resolution:="optional",
                             org.yaml.snakeyaml.*;resolution:="optional",
                             org.springframework.oxm.*;resolution:="optional",
@@ -177,7 +178,8 @@
                             com.fasterxml.jackson.core.*;resolution:="optional",
                             org.springframework.messaging.*;resolution:="optional",
                             org.springframework.osgi.*;resolution:="optional",
-                            org.eclipse.gemini.blueprint.*;resolution:="optional", *
+                            org.eclipse.gemini.blueprint.*;resolution:="optional",
+                            *
                         </Import-Package>
                         <!-- Ensure plugin is spring powered -->
                         <DynamicImport-Package>*</DynamicImport-Package>
@@ -198,13 +200,13 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <scannedDependencies>
-                        <dependency>
-                            <groupId>com.atlassian.plugin</groupId>
-                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>
-                        </dependency>
-                    </scannedDependencies>
-                    <verbose>false</verbose>
+<!--                    <scannedDependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>com.atlassian.plugin</groupId>-->
+<!--                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>-->
+<!--                        </dependency>-->
+<!--                    </scannedDependencies>-->
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>

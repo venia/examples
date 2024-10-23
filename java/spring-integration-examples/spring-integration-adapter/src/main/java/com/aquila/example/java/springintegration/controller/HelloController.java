@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 class HelloController {
+
     // Replace @GetMapping with @RequestMapping
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String sayHello() {
         return "Hello, Spring Boot 1.3.8!";
+    }
+
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    public String order() throws InterruptedException {
+        return "some order";
     }
 }
