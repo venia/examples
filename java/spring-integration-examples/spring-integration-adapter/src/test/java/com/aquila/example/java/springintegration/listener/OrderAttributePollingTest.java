@@ -33,7 +33,7 @@ public class OrderAttributePollingTest {
             QueueChannel processedOrders = context.getBean("processedOrders", QueueChannel.class);
             Message<?> processedMsg = processedOrders.receive(5000);
             assertNotNull(processedMsg);
-            System.out.println("===================Payload result: " + processedMsg.getPayload());
+            System.out.println("===================   Payload result: " + processedMsg.getPayload());
             orderMBean.incrementOrder();
             Thread.sleep(1000);
         }

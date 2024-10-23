@@ -200,12 +200,12 @@
                     </execution>
                 </executions>
                 <configuration>
-<!--                    <scannedDependencies>-->
-<!--                        <dependency>-->
-<!--                            <groupId>com.atlassian.plugin</groupId>-->
-<!--                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>-->
-<!--                        </dependency>-->
-<!--                    </scannedDependencies>-->
+                    <scannedDependencies>
+                        <dependency>
+                            <groupId>com.atlassian.plugin</groupId>
+                            <artifactId>atlassian-spring-scanner-external-jar</artifactId>
+                        </dependency>
+                    </scannedDependencies>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>

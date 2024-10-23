@@ -9,7 +9,7 @@ public class MaxItemsFilter {
         if (orderId.getPayload() != null) {
             Integer orderValue = (Integer) orderId.getPayload();
 
-            if (orderValue > MAX_THRESHOLD) {
+            if (orderValue >= MAX_THRESHOLD) {
                 return true;
             }
             return false;
