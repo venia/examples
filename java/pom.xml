@@ -17,6 +17,7 @@
         <module>spring-data-rest</module>
         <module>spring-integration-examples</module>
         <module>jira-plugins</module>
+        <module>spring-boot</module>
     </modules>
 
     <properties>
