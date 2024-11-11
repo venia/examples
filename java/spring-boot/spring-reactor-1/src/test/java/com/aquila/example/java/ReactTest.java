@@ -152,6 +152,10 @@ class ReactTest {
                             System.out.println("Requesting 2 emissions");
                             s.request(2);
                         }
+                        if (counter % 3 == 0) {
+                            System.out.println("Requesting cancel");
+                            s.cancel();
+                        }
                     }
 
                     @Override
