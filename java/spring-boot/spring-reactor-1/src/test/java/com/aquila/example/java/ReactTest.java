@@ -2,11 +2,15 @@ package com.aquila.example.java;
 
 
 import org.junit.jupiter.api.Test;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
+import reactor.util.context.Context;
 
 import java.time.Duration;
 
@@ -124,4 +128,54 @@ class ReactTest {
         intervalCF.subscribe(i -> System.out.println(String.format("Subscriber B, value: %d", i)));
         Thread.sleep(3000);
     }
+
+    @Test
+    public void backpressureExample() {
+        Flux.range(1,5)
+                .subscribe(new Subscriber<Integer>() {
+                    private Subscription s;
+                    int counter;
+
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        System.out.println("onSubscribe");
+                        this.s = s;
+                        System.out.println("Requesting 2 emissions");
+                        s.request(2);
+                    }
+
+                    @Override
+                    public void onNext(Integer i) {
+                        System.out.println("onNext " + i);
+                        counter++;
+                        if (counter % 2 == 0) {
+                            System.out.println("Requesting 2 emissions");
+                            s.request(2);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        System.err.println("onError");
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("onComplete");
+                    }
+                });
+    }
+
+//    @Test
+//    public void contextTest() {
+//        String key = "key";
+//        Mono<String> mono = Mono.just("anything")
+//                .flatMap(s -> Mono.subscriberContext()
+//                        .map(ctx -> "Value stored in context: " + ctx.get(key)))
+//                .subscriberContext(ctx -> ctx.put(key, "myValue"));
+//
+//        StepVerifier.create(mono)
+//                .expectNext("Value stored in context: myValue")
+//                .verifyComplete();
+//    }
 }
