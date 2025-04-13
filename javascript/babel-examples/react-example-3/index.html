@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React with Babel Standalone</title>
+    <!-- Load React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Load latest Babel standalone -->
+    <script src="https://unpkg.com/@babel/standalone@7.25.9/babel.min.js"></script>
+</head>
+<body>
+    <span>Start:</span>
+    <div id="output"></div>
+    <!-- JSX script processed by Babel -->
+    <script type="text/babel">
+        // No import needed; React and ReactDOM are global
+        const getMessage = () => "Hello World";
+        const getMessageTest = () => "Hello World Test";
+
+        class ToDo extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = {items: [], text: ""};
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+
+            render() {
+                <div>
+                    <h3>ToDo</h3>
+                    <TodoList items={this.state.items} />
+                    <form onSubmit = {this.handleSubmit}>
+                        <label htmlFor = "new-todo">
+                            What need to be done?
+                        </label>
+
+                        <input id="new-todo"
+                            onChange = {this.handleChange}
+                            value={this.state.text}
+                            />
+
+                        <button>
+                            Add #{this.state.items.length+1}
+                        </button>
+                    </form>
+                </div>
+            }
+
+            handleChange(e) {
+                this.setState({text: e.target.value});
+            }
+
+            handleSubmit(e) {
+                e.preventDefault();
+                if(!this.state.text.length){
+                    return;
+                }
+                const newItem = {
+                    text: this.state.text,
+                    id: Date.now()
+                };
+                this.setState(state => ({
+                        items: state.items.concat(newItem),
+                        text: ''
+                    })
+                )
+            }
+        }
+
+        class TodoList extends React.Component {
+            render() {
+                return(
+                    <ul>
+                        (this.props.items.map(item => (
+                            <li key={item.id}>{item.text}</li>
+                        )))
+                    </ul>
+                );
+            }
+        }
+
+
+
+
+        class Timer extends React.Component{
+            
+            constructor(props) {
+                super(props);
+                this.state = {seconds: 0};
+            }
+
+            // tick() {
+            //     this.setState(state => ({
+            //         seconds: state.seconds + 1
+            //     }));
+            // }
+
+            tick() {
+                this.setState(state => {
+                    return {seconds: state.seconds + 1};
+                });
+            }
+
+            componentDidMount() {
+                this.interval = setInterval(() => this.tick(), 1000);
+            }
+
+            componentWillUnmount() {
+                clearInterval(this.interval);
+            }
+
+            render() {
+                return (
+                    <div>
+                        Seconds: {this.state.seconds}
+                    </div>
+                );
+            }
+        }
+
+        // Render the component using React 18 API
+        const root = ReactDOM.createRoot(document.getElementById('output'));
+        root.render(<ToDo />);
+
+        
+    </script>
+</body>
+</html>
