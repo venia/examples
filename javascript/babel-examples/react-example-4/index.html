@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React with Babel Standalone</title>
+    <!-- Load React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Load latest Babel standalone -->
+    <script src="https://unpkg.com/@babel/standalone@7.25.9/babel.min.js"></script>
+</head>
+<body>
+    <span>Start:</span>
+    <div id="output"></div>
+    <!-- JSX script processed by Babel -->
+    <script type="text/babel">
+        // No import needed; React and ReactDOM are global
+        const getMessage = () => "Hello World";
+
+        // Define a React component
+        const App = () => {
+            return <h1>{getMessage()}</h1>;
+        };
+
+        // Render the component using React 18 API
+        const root = ReactDOM.createRoot(document.getElementById('output'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
