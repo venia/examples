@@ -28,7 +28,7 @@
             }
 
             render() {
-                <div>
+                return (<div>
                     <h3>ToDo</h3>
                     <TodoList items={this.state.items} />
                     <form onSubmit = {this.handleSubmit}>
@@ -45,7 +45,7 @@
                             Add #{this.state.items.length+1}
                         </button>
                     </form>
-                </div>
+                </div>);
             }
 
             handleChange(e) {
@@ -73,49 +73,10 @@
             render() {
                 return(
                     <ul>
-                        (this.props.items.map(item => (
+                        {this.props.items.map(item => (
                             <li key={item.id}>{item.text}</li>
-                        )))
+                        ))}
                     </ul>
-                );
-            }
-        }
-
-
-
-
-        class Timer extends React.Component{
-            
-            constructor(props) {
-                super(props);
-                this.state = {seconds: 0};
-            }
-
-            // tick() {
-            //     this.setState(state => ({
-            //         seconds: state.seconds + 1
-            //     }));
-            // }
-
-            tick() {
-                this.setState(state => {
-                    return {seconds: state.seconds + 1};
-                });
-            }
-
-            componentDidMount() {
-                this.interval = setInterval(() => this.tick(), 1000);
-            }
-
-            componentWillUnmount() {
-                clearInterval(this.interval);
-            }
-
-            render() {
-                return (
-                    <div>
-                        Seconds: {this.state.seconds}
-                    </div>
                 );
             }
         }
